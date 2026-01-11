@@ -60,7 +60,7 @@ class Character: Fighter {
             print("🛡 Shield absorbed \(absorbed). Shield now: \(shield)")
         }
         hp = max(hp - damage, 0)
-        print("🔥 Took \(damage) damage. HP now: \(hp)")
+        print("Took \(damage) damage. HP now: \(hp)")
     }
 
     func status() {
