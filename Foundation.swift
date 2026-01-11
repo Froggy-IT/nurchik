@@ -1,6 +1,5 @@
 import Foundation
 
-// MARK: - Fighter Protocol
 protocol Fighter {
     var name: String { get }
     var hp: Int { get set }
@@ -11,7 +10,6 @@ protocol Fighter {
 
 print("Fighter protocol created")
 
-// MARK: - Universe Enum
 enum Universe {
     case attackOnTitan
     case jujutsuKaisen
@@ -29,7 +27,6 @@ enum Universe {
 let universe = Universe.jujutsuKaisen
 print("Universe enum ready: \(universe.title)")
 
-// MARK: - Character Class
 class Character: Fighter {
     let name: String
     var hp: Int
@@ -71,7 +68,6 @@ class Character: Fighter {
     }
 }
 
-// MARK: - Subclasses
 class TitanShifter: Character {
     let titanForm: String
 
@@ -98,21 +94,18 @@ class Sorcerer: Character {
     }
 }
 
-// MARK: - Objects
 let mikasa = Character(name: "Mikasa", hp: 90, power: 25, universe: .attackOnTitan, shield: 15)
 let eren = TitanShifter(name: "Eren", hp: 120, power: 30, universe: .attackOnTitan, shield: 30, titanForm: "Attack Titan")
 let gojo = Sorcerer(name: "Gojo", hp: 110, power: 28, universe: .jujutsuKaisen, shield: 10, cursedEnergy: 250)
 
 let fighters: [Character] = [mikasa, eren, gojo]
 
-// MARK: - Polymorphism
 print("\nPolymorphism demo:")
 for f in fighters {
     f.status()
     print("Attack damage: \(f.attack())")
 }
 
-// MARK: - Generics
 func pickRandom<T>(_ items: [T]) -> T? {
     items.randomElement()
 }
@@ -126,7 +119,6 @@ if let randomUniverse = pickRandom(universes) {
     print("Random universe: \(randomUniverse.title)")
 }
 
-// MARK: - Error Handling
 enum BattleError: Error {
     case sameFighter
     case deadFighter
@@ -139,7 +131,6 @@ func validateForBattle(_ a: Character, _ b: Character) throws {
     if a.power <= 0 || b.power <= 0 { throw BattleError.invalidPower }
 }
 
-// MARK: - Delegation
 protocol BattleLoggerDelegate: AnyObject {
     func didStartBattle(_ a: String, _ b: String)
     func didEndBattle(winner: String)
@@ -173,7 +164,6 @@ class BattleArena {
     }
 }
 
-// MARK: - Run Battle
 let arena = BattleArena()
 arena.delegate = BattleLogger()
 
