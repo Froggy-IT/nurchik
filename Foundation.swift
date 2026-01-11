@@ -176,7 +176,6 @@ do {
     print("Error occurred")
 }
 
-// MARK: - Functional Programming
 print("\nFunctional Programming results:")
 print("map ->", fighters.map { "\($0.name) (HP: \($0.hp))" })
 print("filter ->", fighters.filter { $0.hp > 50 }.map { $0.name })
